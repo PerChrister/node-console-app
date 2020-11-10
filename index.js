@@ -49,7 +49,26 @@ function readPackage(){
 }
 
 function displayOS(){
-    console.log("OS displayed");
+    const os = require('os');
+
+    let totalMemory = os.totalmem();
+    totalMemory = totalMemory /1024 /1024 /1024;
+    let freeMemory = os.freemem();
+    freeMemory = freeMemory /1024 /1024 /1024;
+    const osCPU = os.cpus().length;
+    const osArch = os.arch();
+    const osPlatform = os.platform();
+    const osRelease = os.release();
+    const osUser = os.userInfo().homedir;
+
+    console.log("Getting OS Info...");
+    console.log(`Total memory: ${totalMemory} GB`);
+    console.log(`Free memory: ${freeMemory} GB`);
+    console.log(`CPU: ${osCPU}`);
+    console.log(`Arch: ${osArch}`);
+    console.log(`Platform: ${osPlatform}`);
+    console.log(`Release: ${osRelease}`);
+    console.log(`User: ${osUser}`);
 }
 
 function startServer(){
